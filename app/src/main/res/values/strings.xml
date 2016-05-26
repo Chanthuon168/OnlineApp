@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">OnlineApp</string>
+    <string name="app_name">Khmer Advertise</string>
+    <string name="banner_footer">ca-app-pub-9850528227996386/5636703954</string>
+    <string name="full_ad">ca-app-pub-9850528227996386/7113437156</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 </resources>

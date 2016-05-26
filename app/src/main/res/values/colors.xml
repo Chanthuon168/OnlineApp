@@ -6,4 +6,7 @@
     <color name="mango">#ae33fa</color>
     <color name="white">#fff</color>
     <color name="google">#8e0f0f</color>
+    <color name="black">#000000</color>
+    <color name="gray">#e4dfdf</color>
+    <color name="red">#fc1515</color>
 </resources>
