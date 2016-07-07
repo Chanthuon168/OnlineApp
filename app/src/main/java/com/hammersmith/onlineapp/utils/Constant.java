@@ -11,4 +11,9 @@ public class Constant {
     public final static String URL_PRODUCT_DETAIL = "http://192.168.123.13:81/online_shopping/product_detail/";
     public final static String URL_UPLOAD_IMAGE = "http://192.168.123.13:81/online_shopping/upload_image";
     public final static String URL_UPLOAD_PRODUCT = "http://192.168.123.13:81/online_shopping/upload_product";
+    public final static String URL_LOGIN = "http://192.168.123.13:81/online_shopping/user/login";
+    public final static String URL_CHECKUSERLOGIN = "http://192.168.123.13:81/online_shopping/user_social/";
+    public final static String URL_POST_COMMENT = "http://192.168.123.13:81/online_shopping/post/comment";
+    public final static String URL_GET_COMMENT = "http://192.168.123.13:81/online_shopping/get/comment";
+
 }

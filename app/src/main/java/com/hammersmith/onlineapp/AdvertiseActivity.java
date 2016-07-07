@@ -25,16 +25,21 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.widget.ProfilePictureView;
 import com.hammersmith.onlineapp.adapter.AdvertiseAdapter;
 import com.hammersmith.onlineapp.adapter.ProductAdapter;
 import com.hammersmith.onlineapp.app.AppController;
 import com.hammersmith.onlineapp.model.Advertise;
 import com.hammersmith.onlineapp.model.Product;
+import com.hammersmith.onlineapp.model.User;
 import com.hammersmith.onlineapp.utils.Constant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +56,14 @@ public class AdvertiseActivity extends AppCompatActivity implements AdvertiseAda
     private List<Advertise> advertises = new ArrayList<>();
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+    private User user;
+    private ProfilePictureView profilePictureView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertise);
         context = AdvertiseActivity.this;
+        user = PrefUtils.getCurrentUser(AdvertiseActivity.this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initNavigationDrawer();
@@ -202,15 +210,24 @@ public class AdvertiseActivity extends AppCompatActivity implements AdvertiseAda
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.logout:
-                        finish();
-
+                        FacebookSdk.sdkInitialize(getApplicationContext());
+                        PrefUtils.clearCurrentUser(AdvertiseActivity.this);
+                        LoginManager.getInstance().logOut();
+                        Intent intent = new Intent(AdvertiseActivity.this, MainActivity.class);
+                        startActivity(intent);
                 }
                 return true;
             }
         });
         View header = navigationView.getHeaderView(0);
         TextView tv_email = (TextView)header.findViewById(R.id.tv_email);
-        tv_email.setText("chanthuon@gmail.com");
+        TextView tv_name = (TextView) header.findViewById(R.id.tv_name);
+        profilePictureView = (ProfilePictureView) header.findViewById(R.id.profilefb);
+
+        tv_name.setText(user.getName());
+        tv_email.setText(user.getEmail());
+        profilePictureView.setProfileId(user.getFacebookID());
+
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){

@@ -104,7 +104,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             } else if (TextUtils.isEmpty(description.getText().toString())) {
                 Toast.makeText(getApplicationContext(), "Please input description", Toast.LENGTH_SHORT).show();
             } else {
-                dialog = ProgressDialog.show(UploadActivity.this, "", "Uploading file...", true);
+                dialog = ProgressDialog.show(getApplicationContext(), "", "Uploading file...", true);
                 Toast.makeText(getApplicationContext(), "uploading started.....", Toast.LENGTH_SHORT).show();
                 new Thread(new Runnable() {
                     public void run() {

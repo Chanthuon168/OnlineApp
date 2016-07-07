@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Debug;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -22,7 +20,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.hammersmith.onlineapp.adapter.ProductAdapter;
 import com.hammersmith.onlineapp.app.AppController;
-import com.hammersmith.onlineapp.model.Advertise;
 import com.hammersmith.onlineapp.model.Product;
 import com.hammersmith.onlineapp.utils.Constant;
 import com.squareup.picasso.Picasso;
@@ -154,7 +151,7 @@ public class ProductActivity extends AppCompatActivity implements ProductAdapter
 
     @Override
     public void itemClicked(View view, int position) {
-        Intent intent = new Intent(ProductActivity.this,ProductDetailActivity.class);
+        Intent intent = new Intent(ProductActivity.this,ActivityComment.class);
         Bundle bundle = new Bundle();
         bundle.putString("pro_id", String.valueOf(pro_id[position]));
         bundle.putString("cat_id",cat_id);

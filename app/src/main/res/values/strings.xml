@@ -4,4 +4,7 @@
     <string name="full_ad">ca-app-pub-9850528227996386/7113437156</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="btn_logout_from_google">Sign out</string>
+    <string name="app_id">1033200200076601</string>
+    <string name="google_key">AIzaSyClkCwhCCESqloFjfxhDN0pFP9cnpXZrUs</string>
 </resources>

@@ -31,7 +31,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         context = ProductDetailActivity.this;
-        final String pro_id = getIntent().getExtras().getString("pro_id");
+//        final String pro_id = getIntent().getExtras().getString("pro_id");
         img_pro = (ImageView) findViewById(R.id.image);
         title = (TextView) findViewById(R.id.title);
         price = (TextView) findViewById(R.id.price);
@@ -47,12 +47,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         txttype = (TextView) findViewById(R.id.txttype);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        final String cat_id = getIntent().getExtras().getString("cat_id");
+//        final String cat_id = getIntent().getExtras().getString("cat_id");
+        String cat_id = "1";
         if (cat_id.equals("4")){
             txttype.setText("Type: ");
         }
 
-        final JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_PRODUCT_DETAIL + pro_id, null, new Response.Listener<JSONObject>() {
+        final JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_PRODUCT_DETAIL + "1", null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 try {
